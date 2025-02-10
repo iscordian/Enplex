@@ -1,17 +1,19 @@
 import { Link } from "wouter";
 import { sections } from "@/lib/content";
 import { Search } from "./search";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Sidebar() {
   return (
     <div className="fixed inset-y-0 left-0 z-50 w-64 bg-sidebar border-r">
       <div className="flex flex-col h-full">
-        <div className="flex h-16 shrink-0 items-center px-6">
+        <div className="flex h-16 shrink-0 items-center px-6 justify-between">
           <Link href="/">
             <a className="text-xl font-semibold text-sidebar-foreground">
               Enplex.js
             </a>
           </Link>
+          <ThemeToggle />
         </div>
         <div className="px-6 py-2">
           <Search />
