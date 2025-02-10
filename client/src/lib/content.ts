@@ -23,7 +23,7 @@ export const sections: Section[] = [
 // Quick example using multiple modules
 const app = new Rectify();
 
-app.get("/chat", async (req, res) => {
+app.route("/chat").get(async (req, res) => {
   const response = await NextChat.ask("Hello!");
   res.json({ reply: response });
 });
@@ -76,20 +76,23 @@ app.use(Rectify.helmet({
 }));
 
 // Routes
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+app.route("/")
+  .get((req, res) => {
+    res.json({ message: "Hello World" });
+  });
 
-app.post("/data", (req, res) => {
-  const data = req.body;
-  res.json({ received: data });
-});
+app.route("/data")
+  .post((req, res) => {
+    const data = req.body;
+    res.json({ received: data });
+  });
 
 // File Upload
-app.post("/upload", Rectify.multipart(), (req, res) => {
-  const files = req.files;
-  res.json({ uploaded: files.length });
-});
+app.route("/upload")
+  .post(Rectify.multipart(), (req, res) => {
+    const files = req.files;
+    res.json({ uploaded: files.length });
+  });
 
 // Static Files
 app.useStatic('./public');
