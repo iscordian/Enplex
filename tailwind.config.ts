@@ -44,13 +44,6 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -64,26 +57,40 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.zinc.700'),
+            '--tw-prose-headings': theme('colors.zinc.900'),
+            '--tw-prose-links': theme('colors.primary.500'),
+            '--tw-prose-code': theme('colors.zinc.900'),
+            '--tw-prose-pre-code': theme('colors.zinc.100'),
+            '--tw-prose-pre-bg': theme('colors.zinc.800'),
+          },
+        },
+        dark: {
+          css: {
+            '--tw-prose-body': theme('colors.zinc.300'),
+            '--tw-prose-headings': theme('colors.zinc.200'),
+            '--tw-prose-links': theme('colors.primary.400'),
+            '--tw-prose-code': theme('colors.zinc.200'),
+            '--tw-prose-pre-code': theme('colors.zinc.100'),
+            '--tw-prose-pre-bg': theme('colors.zinc.900'),
+          },
+        },
+      }),
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

@@ -47,8 +47,8 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
           <Copy className="h-4 w-4" />
         )}
       </Button>
-      <pre className="rounded-lg bg-muted p-4 overflow-x-auto">
-        <code className={`language-${language}`}>{code}</code>
+      <pre className="rounded-lg bg-muted p-4 overflow-x-auto dark:bg-zinc-900">
+        <code className={`language-${language} dark:text-zinc-100`}>{code}</code>
       </pre>
     </div>
   );
